@@ -31,6 +31,7 @@
 
 <script>
   import axios from 'axios';
+  import {getAuthenticationToken} from '@/dataStorage';
 
   export default {
     name: "AddRole",
@@ -62,7 +63,7 @@
               password: this.password
             }, {
               params: {
-                access_token: localStorage.getItem( "token" )
+                access_token: getAuthenticationToken( ),
               }
             }
           ).then( response => {
@@ -84,7 +85,9 @@
       },
       buildURI( ){
         let associatePath = "/registro/nuevo-rol/";
-        return this.$store.state.backURL + associatePath + this.role;
+        let finalPath = this.$store.state.backURL + associatePath + this.role;
+        console.log(finalPath)
+        return finalPath;
       }
     }
 
