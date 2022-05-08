@@ -6,13 +6,13 @@
         <h2 class="col-12 text-center text-primary mt-3 mb-5">Agregar un nuevo curso como profesor</h2>
 
         <div class="form-group col-12">
-          <label for="courseName" class="custom-label col-md-3">Contrase&ntilde;a</label>
+          <label for="courseName" class="custom-label col-md-3">Nombre del curso</label>
           <input id="courseName" class="form-control col-12 col-sm-10 col-md-7 offset-sm-1" type="text"
-                 placeholder="Contraseña" v-model="courseName" required/>
+                 placeholder="Nombre del curso" v-model="courseName" required/>
         </div>
 
         <div class="form-group col-12">
-          <label for="hours" class="custom-label col-md-3">Contrase&ntilde;a</label>
+          <label for="hours" class="custom-label col-md-3">Horas</label>
           <input id="hours" class="form-control col-12 col-sm-10 col-md-7 offset-sm-1" type="number"
                  placeholder="Horas" v-model="hours" required/>
         </div>
@@ -44,13 +44,17 @@
     beforeCreate( ){
       const rolesPath = '/mis-roles';
       axios
-        .get( this.$store.state.backURL + rolesPath )
+        .get( this.$store.state.backURL + rolesPath, {
+          params: {
+            access_token: getAuthenticationToken()
+          }
+        })
         .then( response => {
           if( response.status !== 200 ){
             alert( "Error en la petición. Intente nuevamente" )
           }else{
-            response.data.map( role => {
-              if (role == 'Profesor')
+            response.data.map( roles => {
+              if (roles.roleName == 'Profesor')
                 this.isProfessor = true
             })
           }

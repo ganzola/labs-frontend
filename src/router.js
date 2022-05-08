@@ -6,7 +6,7 @@ import Home from "./views/Home";
 import AddRole from "./components/AddRole";
 import Courses from '@/views/Courses';
 import Roles from "@/components/Roles";
-import AddCourse from "@/component/AddCourse"
+import AddCourse from "./components/AddCourse"
 
 Vue.use(Router);
 
