@@ -86,7 +86,6 @@
       buildURI( ){
         let associatePath = "/registro/nuevo-rol/";
         let finalPath = this.$store.state.backURL + associatePath + this.role;
-        console.log(finalPath)
         return finalPath;
       }
     }
