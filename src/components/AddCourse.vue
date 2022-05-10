@@ -1,6 +1,6 @@
 <template>
   <div class="col-12 col-sm-10 col-md-8 offset-sm-1 offset-md-2">
-    <div class="mt-5">
+    <div class="mt-5" v-if="isProfessor">
       <form class="border border-primary rounded form-inline" @submit="associate">
 
         <h2 class="col-12 text-center text-primary mt-3 mb-5">Agregar un nuevo curso como profesor</h2>
@@ -24,6 +24,9 @@
         </div>
 
       </form>
+    </div>
+    <div class="mt-5" v-else>
+      <h1>El usuario no posee rol de profesor</h1>
     </div>
   </div>
 </template>

@@ -1,6 +1,6 @@
 <template>
   <div class="container-fluid mt-2">
-    <h1>Bienvenido al dummy</h1>
+    <h1>Bienvenido al Home</h1>
     <div class="row">
       <router-view></router-view>
     </div>
